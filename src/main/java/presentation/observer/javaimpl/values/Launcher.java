@@ -1,4 +1,4 @@
-package presentation.java_observer.javaimpl;
+package presentation.observer.javaimpl.values;
 
 /**
  * Created by inet on 3/23/2016.

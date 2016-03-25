@@ -20,19 +20,32 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package presentation.java_observer.hobbits;
+package presentation.observer.customimpl.hobbits;
 
 /**
  * 
- * WeatherType enumeration
- * 
+ * Hobbits
+ *
  */
-public enum WeatherType {
-
-  SUNNY, RAINY, WINDY, COLD;
+public class Hobbits implements WeatherObserver {
 
   @Override
-  public String toString() {
-    return this.name().toLowerCase();
+  public void update(WeatherType currentWeather) {
+    switch (currentWeather) {
+      case COLD:
+        System.out.println("The hobbits are shivering in the cold weather.");
+        break;
+      case RAINY:
+        System.out.println("The hobbits look for cover from the rain.");
+        break;
+      case SUNNY:
+        System.out.println("The happy hobbits bade in the warm sun.");
+        break;
+      case WINDY:
+        System.out.println("The hobbits hold their hats tightly in the windy weather.");
+        break;
+      default:
+        break;
+    }
   }
 }

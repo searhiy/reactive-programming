@@ -20,32 +20,48 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package presentation.java_observer.hobbits;
+package presentation.observer.customimpl.hobbits;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 
- * Hobbits
- *
+ * Weather can be observed by implementing {@link WeatherObserver} interface and registering as
+ * listener.
+ * 
  */
-public class Hobbits implements WeatherObserver {
+public class Weather {
 
-  @Override
-  public void update(WeatherType currentWeather) {
-    switch (currentWeather) {
-      case COLD:
-        System.out.println("The hobbits are shivering in the cold weather.");
-        break;
-      case RAINY:
-        System.out.println("The hobbits look for cover from the rain.");
-        break;
-      case SUNNY:
-        System.out.println("The happy hobbits bade in the warm sun.");
-        break;
-      case WINDY:
-        System.out.println("The hobbits hold their hats tightly in the windy weather.");
-        break;
-      default:
-        break;
+  private WeatherType currentWeather;
+  private List<WeatherObserver> observers;
+
+  public Weather() {
+    observers = new ArrayList<>();
+    currentWeather = WeatherType.SUNNY;
+  }
+
+  public void addObserver(WeatherObserver obs) {
+    observers.add(obs);
+  }
+
+  public void removeObserver(WeatherObserver obs) {
+    observers.remove(obs);
+  }
+
+  /**
+   * Makes time pass for weather
+   */
+  public void timePasses() {
+    WeatherType[] enumValues = WeatherType.values();
+    currentWeather = enumValues[(currentWeather.ordinal() + 1) % enumValues.length];
+    System.out.println("The weather changed to " + currentWeather + ".");
+    notifyObservers();
+  }
+
+  private void notifyObservers() {
+    for (WeatherObserver obs : observers) {
+      obs.update(currentWeather);
     }
   }
 }

@@ -1,4 +1,4 @@
-package presentation.java_observer.events;
+package presentation.observer.javaimpl.events;
 
 import java.util.Observable;
 import java.util.Scanner;

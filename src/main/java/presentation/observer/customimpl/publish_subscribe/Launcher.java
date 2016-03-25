@@ -1,4 +1,4 @@
-package presentation.java_observer.publish_subscribe;
+package presentation.observer.customimpl.publish_subscribe;
 
 /**
  * Created by inet on 3/23/2016.

@@ -20,48 +20,32 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package presentation.java_observer.hobbits;
-
-import java.util.ArrayList;
-import java.util.List;
+package presentation.observer.customimpl.hobbits;
 
 /**
  * 
- * Weather can be observed by implementing {@link WeatherObserver} interface and registering as
- * listener.
- * 
+ * Orcs
+ *
  */
-public class Weather {
+public class Orcs implements WeatherObserver {
 
-  private WeatherType currentWeather;
-  private List<WeatherObserver> observers;
-
-  public Weather() {
-    observers = new ArrayList<>();
-    currentWeather = WeatherType.SUNNY;
-  }
-
-  public void addObserver(WeatherObserver obs) {
-    observers.add(obs);
-  }
-
-  public void removeObserver(WeatherObserver obs) {
-    observers.remove(obs);
-  }
-
-  /**
-   * Makes time pass for weather
-   */
-  public void timePasses() {
-    WeatherType[] enumValues = WeatherType.values();
-    currentWeather = enumValues[(currentWeather.ordinal() + 1) % enumValues.length];
-    System.out.println("The weather changed to " + currentWeather + ".");
-    notifyObservers();
-  }
-
-  private void notifyObservers() {
-    for (WeatherObserver obs : observers) {
-      obs.update(currentWeather);
+  @Override
+  public void update(WeatherType currentWeather) {
+    switch (currentWeather) {
+      case COLD:
+        System.out.println("The orcs are freezing cold.");
+        break;
+      case RAINY:
+        System.out.println("The orcs are dripping wet.");
+        break;
+      case SUNNY:
+        System.out.println("The sun hurts the orcs' eyes.");
+        break;
+      case WINDY:
+        System.out.println("The orc smell almost vanishes in the wind.");
+        break;
+      default:
+        break;
     }
   }
 }

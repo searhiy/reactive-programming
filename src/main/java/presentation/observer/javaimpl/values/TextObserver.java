@@ -1,4 +1,4 @@
-package presentation.java_observer.javaimpl;
+package presentation.observer.javaimpl.values;
 
 import java.util.Observable;
 import java.util.Observer;

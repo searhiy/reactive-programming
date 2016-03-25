@@ -1,4 +1,4 @@
-package presentation.java_observer.publish_subscribe;
+package presentation.observer.customimpl.publish_subscribe;
 
 import java.util.ArrayList;
 import java.util.List;

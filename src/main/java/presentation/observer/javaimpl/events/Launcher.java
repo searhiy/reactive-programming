@@ -1,6 +1,4 @@
-package presentation.java_observer.events;
-
-import java.util.Observable;
+package presentation.observer.javaimpl.events;
 
 import static java.lang.System.out;
 
