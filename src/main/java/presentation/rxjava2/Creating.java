@@ -1,4 +1,4 @@
-package presentation.rxjava;
+package presentation.rxjava2;
 
 import rx.Observable;
 import rx.Subscriber;
